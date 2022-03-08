@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="bb050cbb1ced4444bd3656d447d0dd6e" Name="Diagram1">
+        <EntityTypeShape EntityType="TezDBModel.TBaslik" Width="1.5" PointX="3" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TezDBModel.TDanisman" Width="1.5" PointX="3" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TezDBModel.TDil" Width="1.5" PointX="3" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TezDBModel.TEnstitu" Width="1.5" PointX="3" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TezDBModel.TTez" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="TezDBModel.TTip" Width="1.5" PointX="3" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TezDBModel.TUniversite" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TezDBModel.TYazar" Width="1.5" PointX="3" PointY="15.125" IsExpanded="true" />
+        <AssociationConnector Association="TezDBModel.FK_TTez_TBaslik" ManuallyRouted="false" />
+        <AssociationConnector Association="TezDBModel.FK_TTez_TDanisman" ManuallyRouted="false" />
+        <AssociationConnector Association="TezDBModel.FK_TTez_TDil" ManuallyRouted="false" />
+        <AssociationConnector Association="TezDBModel.FK_TEnstitu_TUniversite" ManuallyRouted="false" />
+        <AssociationConnector Association="TezDBModel.FK_TTez_TEnstitu" ManuallyRouted="false" />
+        <AssociationConnector Association="TezDBModel.FK_TTez_TTip" ManuallyRouted="false" />
+        <AssociationConnector Association="TezDBModel.FK_TTez_TUniversite" ManuallyRouted="false" />
+        <AssociationConnector Association="TezDBModel.FK_TTez_TYazar" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

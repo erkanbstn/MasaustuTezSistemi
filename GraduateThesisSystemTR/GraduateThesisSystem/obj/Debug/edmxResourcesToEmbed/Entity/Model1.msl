@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TezDBModelStoreContainer" CdmEntityContainer="TezDBEntities">
+    <EntitySetMapping Name="TBaslik">
+      <EntityTypeMapping TypeName="TezDBModel.TBaslik">
+        <MappingFragment StoreEntitySet="TBaslik">
+          <ScalarProperty Name="BaslikID" ColumnName="BaslikID" />
+          <ScalarProperty Name="Baslik" ColumnName="Baslik" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TDanisman">
+      <EntityTypeMapping TypeName="TezDBModel.TDanisman">
+        <MappingFragment StoreEntitySet="TDanisman">
+          <ScalarProperty Name="DanismanID" ColumnName="DanismanID" />
+          <ScalarProperty Name="Danisman" ColumnName="Danisman" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TDil">
+      <EntityTypeMapping TypeName="TezDBModel.TDil">
+        <MappingFragment StoreEntitySet="TDil">
+          <ScalarProperty Name="DilID" ColumnName="DilID" />
+          <ScalarProperty Name="Dil" ColumnName="Dil" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TEnstitu">
+      <EntityTypeMapping TypeName="TezDBModel.TEnstitu">
+        <MappingFragment StoreEntitySet="TEnstitu">
+          <ScalarProperty Name="EnstituID" ColumnName="EnstituID" />
+          <ScalarProperty Name="Enstitu" ColumnName="Enstitu" />
+          <ScalarProperty Name="Universite" ColumnName="Universite" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TTez">
+      <EntityTypeMapping TypeName="TezDBModel.TTez">
+        <MappingFragment StoreEntitySet="TTez">
+          <ScalarProperty Name="TezNo" ColumnName="TezNo" />
+          <ScalarProperty Name="Baslik" ColumnName="Baslik" />
+          <ScalarProperty Name="Tez" ColumnName="Tez" />
+          <ScalarProperty Name="Yazar" ColumnName="Yazar" />
+          <ScalarProperty Name="Yil" ColumnName="Yil" />
+          <ScalarProperty Name="Tip" ColumnName="Tip" />
+          <ScalarProperty Name="Universite" ColumnName="Universite" />
+          <ScalarProperty Name="Enstitu" ColumnName="Enstitu" />
+          <ScalarProperty Name="SayfaSayisi" ColumnName="SayfaSayisi" />
+          <ScalarProperty Name="Dil" ColumnName="Dil" />
+          <ScalarProperty Name="TeslimTarih" ColumnName="TeslimTarih" />
+          <ScalarProperty Name="Danisman" ColumnName="Danisman" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TTip">
+      <EntityTypeMapping TypeName="TezDBModel.TTip">
+        <MappingFragment StoreEntitySet="TTip">
+          <ScalarProperty Name="TipID" ColumnName="TipID" />
+          <ScalarProperty Name="Tip" ColumnName="Tip" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TUniversite">
+      <EntityTypeMapping TypeName="TezDBModel.TUniversite">
+        <MappingFragment StoreEntitySet="TUniversite">
+          <ScalarProperty Name="UniversiteID" ColumnName="UniversiteID" />
+          <ScalarProperty Name="Universite" ColumnName="Universite" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TYazar">
+      <EntityTypeMapping TypeName="TezDBModel.TYazar">
+        <MappingFragment StoreEntitySet="TYazar">
+          <ScalarProperty Name="YazarID" ColumnName="YazarID" />
+          <ScalarProperty Name="Yazar" ColumnName="Yazar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

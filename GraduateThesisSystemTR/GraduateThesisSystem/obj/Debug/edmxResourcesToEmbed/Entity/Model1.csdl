@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TezDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="TBaslik">
+    <Key>
+      <PropertyRef Name="BaslikID" />
+    </Key>
+    <Property Name="BaslikID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Baslik" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TTez" Relationship="Self.FK_TTez_TBaslik" FromRole="TBaslik" ToRole="TTez" />
+  </EntityType>
+  <EntityType Name="TDanisman">
+    <Key>
+      <PropertyRef Name="DanismanID" />
+    </Key>
+    <Property Name="DanismanID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Danisman" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TTez" Relationship="Self.FK_TTez_TDanisman" FromRole="TDanisman" ToRole="TTez" />
+  </EntityType>
+  <EntityType Name="TDil">
+    <Key>
+      <PropertyRef Name="DilID" />
+    </Key>
+    <Property Name="DilID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Dil" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TTez" Relationship="Self.FK_TTez_TDil" FromRole="TDil" ToRole="TTez" />
+  </EntityType>
+  <EntityType Name="TEnstitu">
+    <Key>
+      <PropertyRef Name="EnstituID" />
+    </Key>
+    <Property Name="EnstituID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Enstitu" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Universite" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="TUniversite" Relationship="Self.FK_TEnstitu_TUniversite" FromRole="TEnstitu" ToRole="TUniversite" />
+    <NavigationProperty Name="TTez" Relationship="Self.FK_TTez_TEnstitu" FromRole="TEnstitu" ToRole="TTez" />
+  </EntityType>
+  <EntityType Name="TTez">
+    <Key>
+      <PropertyRef Name="TezNo" />
+    </Key>
+    <Property Name="TezNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Baslik" Type="Int32" />
+    <Property Name="Tez" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Yazar" Type="Int32" Nullable="false" />
+    <Property Name="Yil" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="Tip" Type="Int32" />
+    <Property Name="Universite" Type="Int32" />
+    <Property Name="Enstitu" Type="Int32" />
+    <Property Name="SayfaSayisi" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="Dil" Type="Int32" />
+    <Property Name="TeslimTarih" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Danisman" Type="Int32" />
+    <NavigationProperty Name="TBaslik" Relationship="Self.FK_TTez_TBaslik" FromRole="TTez" ToRole="TBaslik" />
+    <NavigationProperty Name="TDanisman" Relationship="Self.FK_TTez_TDanisman" FromRole="TTez" ToRole="TDanisman" />
+    <NavigationProperty Name="TDil" Relationship="Self.FK_TTez_TDil" FromRole="TTez" ToRole="TDil" />
+    <NavigationProperty Name="TEnstitu" Relationship="Self.FK_TTez_TEnstitu" FromRole="TTez" ToRole="TEnstitu" />
+    <NavigationProperty Name="TTip" Relationship="Self.FK_TTez_TTip" FromRole="TTez" ToRole="TTip" />
+    <NavigationProperty Name="TUniversite" Relationship="Self.FK_TTez_TUniversite" FromRole="TTez" ToRole="TUniversite" />
+    <NavigationProperty Name="TYazar" Relationship="Self.FK_TTez_TYazar" FromRole="TTez" ToRole="TYazar" />
+  </EntityType>
+  <EntityType Name="TTip">
+    <Key>
+      <PropertyRef Name="TipID" />
+    </Key>
+    <Property Name="TipID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Tip" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TTez" Relationship="Self.FK_TTez_TTip" FromRole="TTip" ToRole="TTez" />
+  </EntityType>
+  <EntityType Name="TUniversite">
+    <Key>
+      <PropertyRef Name="UniversiteID" />
+    </Key>
+    <Property Name="UniversiteID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Universite" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TEnstitu" Relationship="Self.FK_TEnstitu_TUniversite" FromRole="TUniversite" ToRole="TEnstitu" />
+    <NavigationProperty Name="TTez" Relationship="Self.FK_TTez_TUniversite" FromRole="TUniversite" ToRole="TTez" />
+  </EntityType>
+  <EntityType Name="TYazar">
+    <Key>
+      <PropertyRef Name="YazarID" />
+    </Key>
+    <Property Name="YazarID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Yazar" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TTez" Relationship="Self.FK_TTez_TYazar" FromRole="TYazar" ToRole="TTez" />
+  </EntityType>
+  <Association Name="FK_TTez_TBaslik">
+    <End Role="TBaslik" Type="Self.TBaslik" Multiplicity="0..1" />
+    <End Role="TTez" Type="Self.TTez" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBaslik">
+        <PropertyRef Name="BaslikID" />
+      </Principal>
+      <Dependent Role="TTez">
+        <PropertyRef Name="Baslik" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TTez_TDanisman">
+    <End Role="TDanisman" Type="Self.TDanisman" Multiplicity="0..1" />
+    <End Role="TTez" Type="Self.TTez" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TDanisman">
+        <PropertyRef Name="DanismanID" />
+      </Principal>
+      <Dependent Role="TTez">
+        <PropertyRef Name="Danisman" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TTez_TDil">
+    <End Role="TDil" Type="Self.TDil" Multiplicity="0..1" />
+    <End Role="TTez" Type="Self.TTez" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TDil">
+        <PropertyRef Name="DilID" />
+      </Principal>
+      <Dependent Role="TTez">
+        <PropertyRef Name="Dil" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TEnstitu_TUniversite">
+    <End Role="TUniversite" Type="Self.TUniversite" Multiplicity="1" />
+    <End Role="TEnstitu" Type="Self.TEnstitu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TUniversite">
+        <PropertyRef Name="UniversiteID" />
+      </Principal>
+      <Dependent Role="TEnstitu">
+        <PropertyRef Name="Universite" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TTez_TEnstitu">
+    <End Role="TEnstitu" Type="Self.TEnstitu" Multiplicity="0..1" />
+    <End Role="TTez" Type="Self.TTez" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TEnstitu">
+        <PropertyRef Name="EnstituID" />
+      </Principal>
+      <Dependent Role="TTez">
+        <PropertyRef Name="Enstitu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TTez_TTip">
+    <End Role="TTip" Type="Self.TTip" Multiplicity="0..1" />
+    <End Role="TTez" Type="Self.TTez" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TTip">
+        <PropertyRef Name="TipID" />
+      </Principal>
+      <Dependent Role="TTez">
+        <PropertyRef Name="Tip" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TTez_TUniversite">
+    <End Role="TUniversite" Type="Self.TUniversite" Multiplicity="0..1" />
+    <End Role="TTez" Type="Self.TTez" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TUniversite">
+        <PropertyRef Name="UniversiteID" />
+      </Principal>
+      <Dependent Role="TTez">
+        <PropertyRef Name="Universite" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TTez_TYazar">
+    <End Role="TYazar" Type="Self.TYazar" Multiplicity="1" />
+    <End Role="TTez" Type="Self.TTez" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TYazar">
+        <PropertyRef Name="YazarID" />
+      </Principal>
+      <Dependent Role="TTez">
+        <PropertyRef Name="Yazar" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TezDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="TBaslik" EntityType="Self.TBaslik" />
+    <EntitySet Name="TDanisman" EntityType="Self.TDanisman" />
+    <EntitySet Name="TDil" EntityType="Self.TDil" />
+    <EntitySet Name="TEnstitu" EntityType="Self.TEnstitu" />
+    <EntitySet Name="TTez" EntityType="Self.TTez" />
+    <EntitySet Name="TTip" EntityType="Self.TTip" />
+    <EntitySet Name="TUniversite" EntityType="Self.TUniversite" />
+    <EntitySet Name="TYazar" EntityType="Self.TYazar" />
+    <AssociationSet Name="FK_TTez_TBaslik" Association="Self.FK_TTez_TBaslik">
+      <End Role="TBaslik" EntitySet="TBaslik" />
+      <End Role="TTez" EntitySet="TTez" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TTez_TDanisman" Association="Self.FK_TTez_TDanisman">
+      <End Role="TDanisman" EntitySet="TDanisman" />
+      <End Role="TTez" EntitySet="TTez" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TTez_TDil" Association="Self.FK_TTez_TDil">
+      <End Role="TDil" EntitySet="TDil" />
+      <End Role="TTez" EntitySet="TTez" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TEnstitu_TUniversite" Association="Self.FK_TEnstitu_TUniversite">
+      <End Role="TUniversite" EntitySet="TUniversite" />
+      <End Role="TEnstitu" EntitySet="TEnstitu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TTez_TEnstitu" Association="Self.FK_TTez_TEnstitu">
+      <End Role="TEnstitu" EntitySet="TEnstitu" />
+      <End Role="TTez" EntitySet="TTez" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TTez_TTip" Association="Self.FK_TTez_TTip">
+      <End Role="TTip" EntitySet="TTip" />
+      <End Role="TTez" EntitySet="TTez" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TTez_TUniversite" Association="Self.FK_TTez_TUniversite">
+      <End Role="TUniversite" EntitySet="TUniversite" />
+      <End Role="TTez" EntitySet="TTez" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TTez_TYazar" Association="Self.FK_TTez_TYazar">
+      <End Role="TYazar" EntitySet="TYazar" />
+      <End Role="TTez" EntitySet="TTez" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
